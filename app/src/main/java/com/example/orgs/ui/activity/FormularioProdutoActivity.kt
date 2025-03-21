@@ -22,13 +22,14 @@ class FormularioProdutoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(binding.root)
+        title = "Cadastrar produto"
         configuraBotaoSalvar()
         binding.activityFormularioImagem.setOnClickListener {
-            FormularioImagemDialog(this).mostra({
+            FormularioImagemDialog(this).mostra(url) {
                 imagem ->
                 url = imagem
                 binding.activityFormularioImagem.tentaCarregarImagem(url)
-            })
+            }
         }
     }
 
