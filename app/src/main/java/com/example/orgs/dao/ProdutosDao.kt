@@ -18,7 +18,8 @@ class ProdutosDao {
             Produto(
                 nome = "Salada de frutas",
                 descricao = "Teste, teste testes",
-                valor = BigDecimal("19.42")
+                valor = BigDecimal("19.42"),
+                imagem = "https://images.pexels.com/photos/3354513/pexels-photo-3354513.jpeg"
             )
         )
     }

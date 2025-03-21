@@ -32,13 +32,26 @@ class ListaProdutosActivity : AppCompatActivity() {
     private fun configuraFab() {
         val fab = binding.activityListaProdutosFab
         fab.setOnClickListener {
-            val intent = Intent(this, FormularioProdutoActivity::class.java)
-            startActivity(intent)
+            vaiParaFormularioProduto()
         }
+    }
+
+    private fun vaiParaFormularioProduto() {
+        val intent = Intent(this, FormularioProdutoActivity::class.java)
+        startActivity(intent)
     }
 
     private fun configuraRecyclerView() {
         val recyclerView = binding.activityListaProdutosRecyclerView
         recyclerView.adapter = adapter
+        adapter.quandoClicaNoItem = {
+            val intent = Intent(
+                this,
+                DetalhesProdutoActivity::class.java
+            ).apply {
+                putExtra(CHAVE_PRODUTO, it)
+            }
+            startActivity(intent)
+        }
     }
 }
