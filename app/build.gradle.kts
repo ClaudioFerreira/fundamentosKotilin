@@ -18,6 +18,12 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments += ["room.schemaLocation": "$projectDir/schemas".toString()]
+//            }
+//        }
     }
 
     buildTypes {
@@ -65,8 +71,8 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation ("io.coil-kt:coil:1.2.0")
-
-    val room_version = "2.3.0"
+    val room_version = "2.5.0"
     implementation("androidx.room:room-runtime:$room_version")
     kapt("androidx.room:room-compiler:$room_version")
+    implementation ("org.xerial:sqlite-jdbc:3.36.0.3")
 }
