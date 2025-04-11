@@ -11,17 +11,16 @@ import com.example.orgs.model.Produto
 
 @Database(entities = [Produto::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
-abstract class AppDatabase: RoomDatabase() {
+abstract class AppDatabase : RoomDatabase() {
     abstract fun produtoDAO(): ProdutoDAO
 
     companion object {
-        fun intancia(context: Context):AppDatabase {
+        fun intancia(context: Context): AppDatabase {
             return Room.databaseBuilder(
                 context,
                 AppDatabase::class.java,
                 "orgs.db"
             )
-                .allowMainThreadQueries()
                 .build()
         }
     }
